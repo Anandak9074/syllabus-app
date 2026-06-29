@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "404411028917",
+    "project_id": "syllabus-bda75",
+    "storage_bucket": "syllabus-bda75.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:404411028917:android:7e4538b0a0eaf073ca35fc",
+        "android_client_info": {
+          "package_name": "com.ananda9656.syllabusapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHCIWs7SjJ30JWCCOPCys7cZpJ5dXcyPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

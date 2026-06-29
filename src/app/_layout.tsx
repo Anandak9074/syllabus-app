@@ -1,15 +1,55 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import { useColorScheme } from 'react-native';
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <>
+      <StatusBar style="dark" />
+
+      <Stack
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: "#2563EB",
+          },
+          headerTintColor: "#FFFFFF",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 20,
+          },
+          headerTitleAlign: "center",
+          animation: "slide_from_right",
+          contentStyle: {
+            backgroundColor: "#F5F7FA",
+          },
+        }}
+      >
+        {/* Home Screen */}
+        <Stack.Screen
+          name="index"
+          options={{
+            title: "B.Pharm Syllabus",
+            headerShown: true,
+          }}
+        />
+
+        {/* Semester Screen */}
+        <Stack.Screen
+          name="semester/[id]"
+          options={{
+            title: "Semester",
+            headerBackTitle: "Back",
+          }}
+        />
+
+        {/* PDF Screen */}
+        <Stack.Screen
+          name="pdf/[id]"
+          options={{
+            title: "Syllabus PDF",
+            headerBackTitle: "Back",
+          }}
+        />
+      </Stack>
+    </>
   );
 }

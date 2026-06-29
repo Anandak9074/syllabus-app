@@ -17,7 +17,9 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.ananda9656.syllabusapp",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "output": "static",
@@ -34,11 +36,19 @@
             "imageWidth": 76
           }
         }
-      ]
+      ],
+      "expo-sharing",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "bc421327-cfe6-483e-b6d4-bd9678cef7d4"
+      }
     }
   }
 }
