@@ -1,13 +1,12 @@
-import React from "react";
+import { router } from "expo-router";
 import {
-  View,
-  Text,
-  StyleSheet,
   ScrollView,
+  StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { router } from "expo-router";
 
 const semesters = [
   { id: "1", title: "Semester 1", color: "#2563EB" },
@@ -25,26 +24,30 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 30 }}
+        contentContainerStyle={styles.scrollContainer}
       >
         {/* Header */}
+
         <View style={styles.header}>
-          <Text style={styles.title}>💊 B.Pharm Syllabus</Text>
+          <Text style={styles.title}>VIDHYODHAYAM</Text>
+
           <Text style={styles.subtitle}>
             Semester-wise Syllabus & PDFs
           </Text>
         </View>
 
         {/* Banner */}
+
         <View style={styles.banner}>
           <Text style={styles.bannerTitle}>Welcome 👋</Text>
 
           <Text style={styles.bannerText}>
-            Select your semester to view the syllabus PDF.
+            Select your semester to access the syllabus PDF quickly and easily.
           </Text>
         </View>
 
         {/* Semester Section */}
+
         <Text style={styles.sectionTitle}>
           Select Semester
         </Text>
@@ -57,8 +60,9 @@ export default function HomeScreen() {
                 styles.card,
                 { backgroundColor: semester.color },
               ]}
+              activeOpacity={0.85}
               onPress={() =>
-                router.push(`/semester/${semester.id}`)
+                router.push(`/semester/${semester.id}` as any)
               }
             >
               <Text style={styles.cardIcon}>📘</Text>
@@ -74,15 +78,21 @@ export default function HomeScreen() {
           ))}
         </View>
 
-        {/* GPAT & NIPER */}
+        {/* Entrance Exams */}
 
         <Text style={styles.sectionTitle}>
           Entrance Exams
         </Text>
 
         <TouchableOpacity
-          style={[styles.examButton, { backgroundColor: "#8B5CF6" }]}
-          onPress={() => router.push("/gpat")}
+          style={[
+            styles.examButton,
+            { backgroundColor: "#8B5CF6" },
+          ]}
+          activeOpacity={0.85}
+          onPress={() =>
+            router.push({ pathname: "/gpat" })
+          }
         >
           <Text style={styles.examText}>
             📖 GPAT Preparation
@@ -90,8 +100,14 @@ export default function HomeScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[styles.examButton, { backgroundColor: "#F97316" }]}
-          onPress={() => router.push("/niper")}
+          style={[
+            styles.examButton,
+            { backgroundColor: "#F97316" },
+          ]}
+          activeOpacity={0.85}
+          onPress={() =>
+            router.push({ pathname: "/niper" })
+          }
         >
           <Text style={styles.examText}>
             🎓 NIPER Preparation
@@ -99,35 +115,42 @@ export default function HomeScreen() {
         </TouchableOpacity>
 
         <Text style={styles.footer}>
-          Version 1.0
+          Version 1.0.0
         </Text>
-
       </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: "#F5F7FA",
   },
 
+  scrollContainer: {
+    paddingBottom: 30,
+  },
+
   header: {
-    padding: 20,
+    alignItems: "center",
+    paddingTop: 30,
+    paddingHorizontal: 20,
+    marginBottom: 10,
   },
 
   title: {
-    fontSize: 30,
+    fontSize: 32,
     fontWeight: "bold",
     color: "#1E3A8A",
+    letterSpacing: 1,
   },
 
   subtitle: {
     fontSize: 16,
     color: "#666",
     marginTop: 5,
+    textAlign: "center",
   },
 
   banner: {
@@ -140,7 +163,7 @@ const styles = StyleSheet.create({
   },
 
   bannerTitle: {
-    color: "#fff",
+    color: "#FFFFFF",
     fontSize: 24,
     fontWeight: "bold",
   },
@@ -182,7 +205,7 @@ const styles = StyleSheet.create({
   },
 
   cardTitle: {
-    color: "#fff",
+    color: "#FFFFFF",
     fontSize: 18,
     fontWeight: "bold",
     marginTop: 10,
@@ -204,7 +227,7 @@ const styles = StyleSheet.create({
   },
 
   examText: {
-    color: "#fff",
+    color: "#FFFFFF",
     fontSize: 20,
     fontWeight: "bold",
   },
@@ -212,8 +235,7 @@ const styles = StyleSheet.create({
   footer: {
     textAlign: "center",
     color: "#777",
-    marginTop: 20,
+    marginTop: 25,
     fontSize: 14,
   },
-
 });
